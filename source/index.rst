@@ -8,6 +8,7 @@ Welcome to zjt-blog's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :glob:
    :caption: Contents:
 
    docs/hello
