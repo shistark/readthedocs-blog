@@ -10,7 +10,8 @@ Welcome to zjt-blog's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   docs/hello
+   ...
 
 Indices and tables
 ==================
