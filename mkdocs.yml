@@ -1,6 +1,0 @@
-site_name: My Docs
-nav:
-- Home: 'index.md'
-- Hello: 'hello.md'
-theme: readthedocs
-site_url: https://zjt-blog.readthedocs.io/en/latest/
