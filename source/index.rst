@@ -12,11 +12,5 @@ Welcome to zjt-blog's documentation!
 
    embeddings/index
    rl/index
-   ...
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   
