@@ -5,6 +5,7 @@ DeepWalk算法是输入图并输出图的节点隐藏表征的算法，包含两
 > DeepWalk = RandomWalk + SkipGram
 ## RandomWalk
 ![RandomWalk](./img/deepwalk/randomwalk.jpg)  
+
 如图所示，随机游走就是从一个节点出发，随机的向这个节点可以到达的邻居节点进行游走的过程，当达到最大游走轮次时，我们就能得到一条游走序列。随机游走的好处在于，可以并行执行，因为游走的范围仅仅是局部的，且不修改网络结构，因此可以并行执行。另外，随机游走可以自适应支持不同规模的图，具有良好的适应性。
 ## SkipGram
 ![SkipGram](./img/deepwalk/skipgram_model.png)
