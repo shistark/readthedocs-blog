@@ -8,5 +8,7 @@
    :maxdepth: 2
    :numbered: 2
 
-   hello
-   
+   DeepWalk
+   node2vec
+   LINE
+   GraphSAGE
