@@ -16,19 +16,19 @@ LINE中定义了如下几个概念。
 ## LINE
 下面介绍一下LINE是如何保存一阶相似性和二阶相似性的。
 ### 一阶相似性
-![line_1st_proximity](./img/LINE/line_1st_proximity.png)
+![](./img/LINE/line_1st_proximity.png)
 
 如上图公式，在LINE中，节点为`vi`，`vj`，那么`ui`和`uj`分别为向量表征，公式的含义是节点空间上的节点分布，也就是说，我们可以通过优化节点空间上的节点分布来获得最好的向量表征，即`ui`和`uj`。最直接的利用距离的方式如下：
 
-![line_1st_distance](./img/LINE/line_1st_distance.png)
+![](./img/LINE/line_1st_distance.png)
 
 我们可以通过优化当前的节点分布和最佳分布的距离，减少这个距离的方式就是改变公式的输入参数，也就是节点的表征（embeddings），这样来获得最能够保存一阶相似性的节点embeddings。LINE原文用于衡量节点分布相似性的方法是KL散度，有兴趣的同学可以阅读原文。
 
 ### 二阶相似性
-![line_2nd_proximity](./img/LINE/line_2nd_proximity.png)
+![](./img/LINE/line_2nd_proximity.png)
 
 如上图，带有一撇的`u`指的是当节点为上下文时的embeddings。二阶相似性就是在优化节点的周围邻居出现的概率，按照距离的方式，我们可以得到：
 
-![line_2nd_distance](./img/LINE/line_2nd_distance.png)
+![](./img/LINE/line_2nd_distance.png)
 
 因此同样的可以通过优化节点的embeddings，来优化节点的二阶分布的保存效果。原文中的方式还是KL散度。
