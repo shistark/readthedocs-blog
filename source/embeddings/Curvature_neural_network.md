@@ -1,5 +1,5 @@
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+<script id="MathJax-script" async src="../_static/js/tex-mml-chtml.js"></script>
 
 # Curvature neural network
 这篇文章发表于2020的ICLR，文章利用曲率来进行节点embedding的计算。边的曲率定义了边之间的距离，这个距离和边的长度是不一样的。首先介绍一下曲率。  

@@ -37,7 +37,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="区块链系列" href="../Blockchain/index.html" />
-    <link rel="prev" title="5. Graph inference learning for semi-supervised classification" href="Graph_inference_learning_for_semi-supervised_classification.html" /> 
+    <link rel="prev" title="5. Graph inference learning for semi-supervised classification" href="Graph_inference_learning_for_semi_supervised_classification.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,7 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="node2vec.html">2. node2vec</a></li>
 <li class="toctree-l2"><a class="reference internal" href="LINE.html">3. LINE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GraphSAGE.html">4. GraphSAGE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Graph_inference_learning_for_semi-supervised_classification.html">5. Graph inference learning for semi-supervised classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Graph_inference_learning_for_semi_supervised_classification.html">5. Graph inference learning for semi-supervised classification</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">6. Curvature neural network</a></li>
 </ul>
 </li>
@@ -158,7 +158,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><div class="section" id="curvature-neural-network">
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> --><script id="MathJax-script" async src="../_static/js/tex-mml-chtml.js"></script><div class="section" id="curvature-neural-network">
 <h1>6. Curvature neural network<a class="headerlink" href="#curvature-neural-network" title="永久链接至标题">¶</a></h1>
 <p>这篇文章发表于2020的ICLR，文章利用曲率来进行节点embedding的计算。边的曲率定义了边之间的距离，这个距离和边的长度是不一样的。首先介绍一下曲率。<br />在曲线上，曲率指的是针对曲线上某个点的切向方向角对弧长的转动率，用来表示曲线在某一点的弯曲程度。<br /><img alt="curvature" src="../_images/curvature.jpg" /><br />涉及到数学理解上比较困难，不过这不是重点，重点是在离散空间即图上，如何定义曲率。文章采用了一种比较粗糙的方法，首先定义$m_x$为节点x上的概率度量：
 $$m_x(x_i) = \left\{
@@ -196,7 +196,7 @@ $$h_x^{t+1}=\sigma_t(\sum_{y \in N(x)} diag(\Gamma_{xy}^t)W^th_y^t)$$
         <a href="../Blockchain/index.html" class="btn btn-neutral float-right" title="区块链系列" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Graph_inference_learning_for_semi-supervised_classification.html" class="btn btn-neutral float-left" title="5. Graph inference learning for semi-supervised classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Graph_inference_learning_for_semi_supervised_classification.html" class="btn btn-neutral float-left" title="5. Graph inference learning for semi-supervised classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
