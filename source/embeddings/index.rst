@@ -13,3 +13,5 @@
     node2vec
     LINE
     GraphSAGE
+    Graph_inference_learning_for_semi_supervised_classification
+    Curvature_neural_network

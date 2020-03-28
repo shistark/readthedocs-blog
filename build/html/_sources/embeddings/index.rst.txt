@@ -9,8 +9,9 @@
     :maxdepth: 2
     :numbered: 2
 
-    Blockchain/index
     DeepWalk
     node2vec
     LINE
     GraphSAGE
+    Graph_inference_learning_for_semi_supervised_classification
+    Curvature_neural_network
