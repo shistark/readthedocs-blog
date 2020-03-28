@@ -11,6 +11,5 @@ Welcome to zjt-blog's documentation!
    :glob:
 
    embeddings/index
-   rl/index
 
 
