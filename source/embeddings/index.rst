@@ -9,7 +9,6 @@
     :maxdepth: 2
     :numbered: 2
 
-    Blockchain/index
     DeepWalk
     node2vec
     LINE
