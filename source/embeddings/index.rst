@@ -6,10 +6,11 @@
 | 下方将介绍一些图嵌入、图表示学习方法。
 
 .. toctree::
-   :maxdepth: 2
-   :numbered: 2
+    :maxdepth: 2
+    :numbered: 2
 
-   DeepWalk
-   node2vec
-   LINE
-   GraphSAGE
+    Blockchain/index
+    DeepWalk
+    node2vec
+    LINE
+    GraphSAGE
