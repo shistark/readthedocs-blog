@@ -1,4 +1,4 @@
-区块链系列
+区块链
 ================
 | Blockchain
 | Ethernet
