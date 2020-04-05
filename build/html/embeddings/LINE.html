@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. LINE &mdash; zjt-blog  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="4. GraphSAGE" href="GraphSAGE.html" />
+    <link rel="prev" title="2. node2vec" href="node2vec.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> zjt-blog
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../生活/index.html">生活</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">图/网络嵌入</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DeepWalk.html">1. DeepWalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node2vec.html">2. node2vec</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. LINE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">3.1. 问题定义</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.2. LINE</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">一阶相似性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">二阶相似性</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.3. 总结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GraphSAGE.html">4. GraphSAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Graph_inference_learning_for_semi_supervised_classification.html">5. Graph inference learning for semi-supervised classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Curvature_neural_network.html">6. Curvature neural network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Blockchain/index.html">区块链</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">zjt-blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">图/网络嵌入</a> &raquo;</li>
+        
+      <li>3. LINE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/embeddings/LINE.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="line">
+<h1>3. LINE<a class="headerlink" href="#line" title="永久链接至标题">¶</a></h1>
+<p>LINE原文名字叫做LINE: Large-scale Information Network Embedding。</p>
+<p>文章和DeepWalk以及node2vec的算法不同，它不是采用的SkipGram等模型进行embeddings计算的算法。LINE是利用了BFS的方式，主要考虑优化一阶相似性和二阶相似性，来优化节点的特征表示，从这个角度而言LINE与SDNE等算法比较相似。</p>
+<div class="section" id="id1">
+<h2>3.1. 问题定义<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>LINE中定义了如下几个概念。</p>
+<blockquote>
+<div><p>定义1：（信息网络）信息网络就是拥有节点（代表数据对象）和节点之间的连边的网络。边可能拥有权重，也可能没有，同时，边可能具有方向，也可能是无向边。</p>
+</div></blockquote>
+<blockquote>
+<div><p>定义2：（一阶相似性）指的是网络上两个节点的局部相似性，如果两个节点有连边，一阶相似性就为1，否则为0。</p>
+</div></blockquote>
+<blockquote>
+<div><p>定义3：（二阶相似性）指的是两个节点的邻居网络结构的相似性，如果两个节点的邻居节点都不具有一阶相似性，则这两个节点也不具有二阶相似性。</p>
+</div></blockquote>
+<blockquote>
+<div><p>定义4：（大规模信息网络嵌入）给定大规模信息网络，对网络中的每个节点都计算低维表征，就是大规模信息网络嵌入。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>3.2. LINE<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>下面介绍一下LINE是如何保存一阶相似性和二阶相似性的。</p>
+<div class="section" id="id3">
+<h3>一阶相似性<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p><img alt="../_images/line_1st_proximity.png" src="../_images/line_1st_proximity.png" /></p>
+<p>如上图公式，在LINE中，节点为<code class="docutils literal notranslate"><span class="pre">vi</span></code>，<code class="docutils literal notranslate"><span class="pre">vj</span></code>，那么<code class="docutils literal notranslate"><span class="pre">ui</span></code>和<code class="docutils literal notranslate"><span class="pre">uj</span></code>分别为向量表征，公式的含义是节点空间上的节点分布，也就是说，我们可以通过优化节点空间上的节点分布来获得最好的向量表征，即<code class="docutils literal notranslate"><span class="pre">ui</span></code>和<code class="docutils literal notranslate"><span class="pre">uj</span></code>。最直接的利用距离的方式如下：</p>
+<p><img alt="../_images/line_1st_distance.png" src="../_images/line_1st_distance.png" /></p>
+<p>我们可以通过优化当前的节点分布和最佳分布的距离，减少这个距离的方式就是改变公式的输入参数，也就是节点的表征（embeddings），这样来获得最能够保存一阶相似性的节点embeddings。LINE原文用于衡量节点分布相似性的方法是KL散度，有兴趣的同学可以阅读原文。</p>
+</div>
+<div class="section" id="id4">
+<h3>二阶相似性<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p><img alt="../_images/line_2nd_proximity.png" src="../_images/line_2nd_proximity.png" /></p>
+<p>如上图，带有一撇的<code class="docutils literal notranslate"><span class="pre">u</span></code>指的是当节点为上下文时的embeddings。二阶相似性就是在优化节点的周围邻居出现的概率，按照距离的方式，我们可以得到：</p>
+<p><img alt="../_images/line_2nd_distance.png" src="../_images/line_2nd_distance.png" /></p>
+<p>因此同样的可以通过优化节点的embeddings，来优化节点的二阶分布的保存效果。原文中的方式还是KL散度。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.3. 总结<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>上面的表述过分简单了，可能会造成误解，其实上面的公式定义就相当于损失函数，输入公式的是节点的embeddings。通过一阶和二阶的优化，可以得到较好的节点embeddings。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="GraphSAGE.html" class="btn btn-neutral float-right" title="4. GraphSAGE" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="node2vec.html" class="btn btn-neutral float-left" title="2. node2vec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, zjt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

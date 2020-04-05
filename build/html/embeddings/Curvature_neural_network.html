@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Curvature neural network &mdash; zjt-blog  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="区块链" href="../Blockchain/index.html" />
+    <link rel="prev" title="5. Graph inference learning for semi-supervised classification" href="Graph_inference_learning_for_semi_supervised_classification.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> zjt-blog
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../生活/index.html">生活</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">图/网络嵌入</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DeepWalk.html">1. DeepWalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="node2vec.html">2. node2vec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LINE.html">3. LINE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GraphSAGE.html">4. GraphSAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Graph_inference_learning_for_semi_supervised_classification.html">5. Graph inference learning for semi-supervised classification</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. Curvature neural network</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Blockchain/index.html">区块链</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">zjt-blog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">图/网络嵌入</a> &raquo;</li>
+        
+      <li>6. Curvature neural network</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/embeddings/Curvature_neural_network.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> --><script id="MathJax-script" async src="../_static/js/tex-mml-chtml.js"></script><div class="section" id="curvature-neural-network">
+<h1>6. Curvature neural network<a class="headerlink" href="#curvature-neural-network" title="永久链接至标题">¶</a></h1>
+<p>这篇文章发表于2020的ICLR，文章利用曲率来进行节点embedding的计算。边的曲率定义了边之间的距离，这个距离和边的长度是不一样的。首先介绍一下曲率。<br />在曲线上，曲率指的是针对曲线上某个点的切向方向角对弧长的转动率，用来表示曲线在某一点的弯曲程度。<br /><img alt="curvature" src="../_images/curvature.jpg" /></p>
+<p>涉及到数学理解上比较困难，不过这不是重点，重点是在离散空间即图上，如何定义曲率。文章采用了一种比较粗糙的方法，首先定义$m_x$为节点x上的概率度量：
+$$m_x(x_i) = \left\{
+\begin{aligned}
+\alpha &amp;    &amp; if x_i=x\\
+(1-\alpha)/k &amp;      &amp; if  x_i \in N(x)\\
+0 &amp;    &amp; otherwise
+\end{aligned}
+\right.$$
+$$\alpha是一个超参数$$
+通过Wasserstein距离来测量两个节点之间的距离。Wasserstein距离度量两个概率分布之间的距离，指的是把概率分布q转换为p的最小变换的距离。因此，曲率被定义为与Wasserstein距离W(mx, my)比d(x,y)有关：
+$$k_{xy}=1-\frac{W(m_x,m_y)}{d(x,y)}$$<br />含义如下图，表明不同结构的网络上节点之间的关系：
+<img alt="ricci_curvature.png" src="../_images/ricci_curvature.png" /></p>
+<p>为了计算得到点x，y之间的W(mx, my)距离，对下式进行优化：
+$$min_M\sum_{i,j}d(x_i,y_j)M(x_i,y_j) s.t.\sum_jM(x_i,y_j)=m_x(x_i),\forall i;\sum_iM(x_i,y_j)=m_y(y_j),\forall j$$
+其中M表示的是沿着最短距离d从点x到y的概率质量的数量。<br />接下来介绍一下文章如何在图卷积网络中使用曲率，曲率直观上而言是衡量一条消息流过边缘的难易程度，并应用于控制卷积中的消息，例如，正曲率表示的是在社区内部，负曲率表示的是连接两个不同社区的连边。<br />首先GCN的公式可以表示为下式，h是节点feature或embedding，W是权重矩阵：
+$$h_x^{t+1}=\sigma_t(\sum_{y \in N(x)} \tau_{xy}^tW^th_y^t)$$
+为了得到公式中的
+$$\tau_{xy}^t$$
+在这里使用MLP多层感知器获得：<br />$$\tau_{xy}=softmax^t(MLP^t(k_{xy}))$$
+这就是文章提出的<strong>CurvGN-1</strong>。文章还提出了<strong>CurvGN-n</strong>，CurvGN-n考虑将上面的MLP层扩展到多值的版本，以便获得更强的灵活性。<br />CurvGN-n是对不同的消息通道不同的权重，同样的也是用MLP来进行学习的：
+$$\Gamma_{xy}=softmax^t(MLP^t(k_{xy}))$$
+但是聚合特征方面的公式不太一样：
+$$h_x^{t+1}=\sigma_t(\sum_{y \in N(x)} diag(\Gamma_{xy}^t)W^th_y^t)$$
+其中的diag表示是对角矩阵。<br />这篇文章提出了使用数学方法结合神经网络来进行图嵌入的学习，经过实验发现使用曲率能有效的改善embedding的效果。</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Blockchain/index.html" class="btn btn-neutral float-right" title="区块链" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Graph_inference_learning_for_semi_supervised_classification.html" class="btn btn-neutral float-left" title="5. Graph inference learning for semi-supervised classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, zjt
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
