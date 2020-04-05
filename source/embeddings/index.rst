@@ -15,3 +15,4 @@
     GraphSAGE
     Graph_inference_learning_for_semi_supervised_classification
     Curvature_neural_network
+    Topology_Optimization_based_Graph_Convolutional_Network
