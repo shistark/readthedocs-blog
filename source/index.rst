@@ -10,6 +10,7 @@ Welcome to zjt-blog's documentation!
     :maxdepth: 2
     :glob:
 
+    架构/index
     生活/index
     embeddings/index
     Blockchain/index
