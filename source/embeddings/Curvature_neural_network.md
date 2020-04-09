@@ -1,4 +1,4 @@
-<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+<script src="../_static/js/polyfill.min.js"></script>
 <script id="MathJax-script" async src="../_static/js/tex-mml-chtml.js"></script>
 
 # Curvature neural network
