@@ -16,3 +16,4 @@
     Graph_inference_learning_for_semi_supervised_classification
     Curvature_neural_network
     Topology_Optimization_based_Graph_Convolutional_Network
+    Attributed_Graph_Clustering_A_Deep_Attentional_Embedding_Approach
