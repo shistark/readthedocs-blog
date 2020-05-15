@@ -19,4 +19,4 @@
     Attributed_Graph_Clustering_A_Deep_Attentional_Embedding_Approach
     Attributed_Graph_Clustering_via_Adaptive_Graph_Convolution
     DropEdge
-    链路预测
+    link_prediction
