@@ -20,3 +20,5 @@
     Attributed_Graph_Clustering_via_Adaptive_Graph_Convolution
     DropEdge
     link_prediction
+    
+    .. Graph_Homomorphism_Convolution
