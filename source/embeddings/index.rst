@@ -9,6 +9,7 @@
     :maxdepth: 2
     :numbered: 2
 
+    link_prediction
     DeepWalk
     node2vec
     LINE
@@ -19,6 +20,5 @@
     Attributed_Graph_Clustering_A_Deep_Attentional_Embedding_Approach
     Attributed_Graph_Clustering_via_Adaptive_Graph_Convolution
     DropEdge
-    link_prediction
-    
+    Link_Prediction_Based_on_Graph_Neural_Networks
     .. Graph_Homomorphism_Convolution
