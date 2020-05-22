@@ -10,6 +10,7 @@
     :numbered: 2
 
     link_prediction
+    Articles
     DeepWalk
     node2vec
     LINE
