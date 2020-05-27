@@ -14,9 +14,9 @@ Welcome to zjt-blog's documentation!
     :glob:
 
     架构/index
-    生活/index
     技术/index
     技术之外/index
     embeddings/index
     Blockchain/index
+    生活/index
 
