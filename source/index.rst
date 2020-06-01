@@ -19,4 +19,5 @@ Welcome to zjt-blog's documentation!
     embeddings/index
     Blockchain/index
     生活/index
+    投资/index
 
