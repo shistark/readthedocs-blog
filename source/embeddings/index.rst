@@ -22,4 +22,5 @@
     Attributed_Graph_Clustering_via_Adaptive_Graph_Convolution
     DropEdge
     Link_Prediction_Based_on_Graph_Neural_Networks
+    Graph_Neural_Networks_with_Composite_Kernels
     .. Graph_Homomorphism_Convolution
